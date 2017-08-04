@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="../controllers/admin/Bootstrap.php">
+    <testsuites>
+        <testsuite name="admin">
+            <directory>../controllers/admin</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

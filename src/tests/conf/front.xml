@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="../controllers/front/Bootstrap.php">
+    <testsuites>
+        <testsuite name="front">
+            <directory>../controllers/front</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

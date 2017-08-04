@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>后台系统</title>
+        <?php include 'common/header.html';?>
+    </head>
+    <body class="<?=$aceSkin?>">
+        <?php include 'common/nav.html';?>
+
+        <div class="main-container" id="main-container">
+            <?php include 'common/sidebar.html';?>
+
+            <div class="main-content">
+                <div class="main-content-inner">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="ace-icon fa fa-home home-icon"></i>
+                                <a href="/">首页</a>
+                            </li>
+                            <li class="active">Dashboard</li>
+                        </ul>
+                    </div>
+
+                    <div class="page-content">
+                        <?php include 'common/setting.html';?>
+
+                        <div class="page-header">
+                          <h1>
+                            首页
+                            <small>
+                              <i class="ace-icon fa fa-angle-double-right"></i>
+                              Dashboard
+                            </small>
+                          </h1>
+                        </div>
+
+                        <!-- content start -->
+                        <div class="row">
+                        </div>
+                        <!-- content end -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+            </a>
+        </div>
+
+        <?php include 'common/script.html';?>
+        <?php include 'common/ajaxloading.html';?>
+    </body>
+</html>

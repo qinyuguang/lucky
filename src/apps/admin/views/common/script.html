@@ -1,0 +1,51 @@
+<!-- basic scripts -->
+
+<!-- ace settings handler -->
+<script src="http://<?=$config->adomain?>/ace/js/ace-extra.min.js?v=<?=$staticVersion?>"></script>
+
+<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+<!--[if lte IE 8]>
+<script src="http://<?=$config->adomain?>/ace/js/html5shiv.min.js?v=<?=$staticVersion?>"></script>
+<script src="http://<?=$config->adomain?>/ace/js/respond.min.js?v=<?=$staticVersion?>"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+<script src="http://<?=$config->adomain?>/ace/js/jquery-2.1.4.min.js?v=<?=$staticVersion?>"></script>
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="http://<?=$config->adomain?>/ace/js/jquery-1.11.3.min.js?v=<?=$staticVersion?>"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='http://<?=$config->adomain?>/ace/js/jquery.mobile.custom.min.js?v=<?=$staticVersion?>'>"+"<"+"/script>");
+</script>
+
+<script src="http://<?=$config->adomain?>/ace/js/bootstrap.min.js?v=<?=$staticVersion?>"></script>
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="http://<?=$config->adomain?>/ace/js/excanvas.min.js?v=<?=$staticVersion?>"></script>
+<![endif]-->
+
+<script src="http://<?=$config->adomain?>/ace/js/jquery-ui.min.js?v=<?=$staticVersion?>"></script>
+<script src="http://<?=$config->adomain?>/ace/js/jquery.ui.touch-punch.min.js?v=<?=$staticVersion?>"></script>
+
+<script src="http://<?=$config->adomain?>/ace/js/jquery.gritter.min.js?v=<?=$staticVersion?>"></script>
+
+<!-- ace scripts -->
+<script src="http://<?=$config->adomain?>/ace/js/ace-elements.min.js?v=<?=$staticVersion?>"></script>
+<script src="http://<?=$config->adomain?>/ace/js/ace.min.js?v=<?=$staticVersion?>"></script>
+
+<script type="text/javascript">
+    $(function(){
+        try{ace.settings.check('main-container', 'findxed')}catch(e){}
+        try{ace.settings.check('sidebarbar', 'fixed')}catch(e){}
+        try{ace.settings.check('sidebar', 'collapsed')}catch(e){}
+        try{ace.settings.check('breadcrumbs', 'fixed')}catch(e){}
+        try{ace.settings.check('navbar', 'fixed')}catch(e){}
+        ace.data = new ace.data_storage(2);
+    });
+</script>

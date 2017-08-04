@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>404 Not Found</title>
+        <?php include 'common/header.html';?>
+    </head>
+    <body class="<?=$aceSkin?>">
+        <?php include 'common/nav.html';?>
+
+        <div class="main-container" id="main-container">
+            <?php include 'common/sidebar.html';?>
+
+            <div class="main-content">
+                <div class="main-content-inner">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="ace-icon fa fa-home home-icon"></i>
+                                <a href="/">首页</a>
+                            </li>
+                            <li class="active">404 Not Found</li>
+                        </ul>
+                    </div>
+
+                    <div class="page-content">
+                        <?php include 'common/setting.html';?>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- PAGE CONTENT BEGINS -->
+
+                                <div class="error-container">
+                                    <div class="well">
+                                        <h1 class="grey lighter smaller">
+                                            <span class="blue bigger-125">
+                                                <i class="ace-icon fa fa-sitemap"></i>
+                                                404
+                                            </span>
+                                            Page Not Found
+                                        </h1>
+
+                                        <hr />
+                                        <div class="space"></div>
+
+                                        <div class="center">
+                                            <a href="javascript:history.back()" class="btn btn-grey">
+                                                <i class="ace-icon fa fa-arrow-left"></i>
+                                                Go Back
+                                            </a>
+
+                                            <a href="/" class="btn btn-primary">
+                                                <i class="ace-icon fa fa-tachometer"></i>
+                                                Dashboard
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+                <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+            </a>
+        </div>
+
+        <?php include 'common/script.html';?>
+    </body>
+</html>

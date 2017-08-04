@@ -1,0 +1,33 @@
+<div class="ajax-loading-overlay" id="ajax-loading-overlay" style="display:none;">
+    <div class="pull-right center spinner-preview" id="ajax-loading-icon"></div>
+</div>
+
+<script src="http://<?=$config->adomain?>/ace/js/spin.js?v=<?=$staticVersion?>"></script>
+<script>
+$.fn.spin = function(opts) {
+    this.each(function() {
+        var $this = $(this),
+        data = $this.data();
+
+        if (data.spinner) {
+            data.spinner.stop();
+            delete data.spinner;
+        }
+        if (opts !== false) {
+            data.spinner = new Spinner($.extend({color: $this.css('color')}, opts)).spin(this);
+        }
+    });
+    return this;
+};
+$(function(){
+    $("#ajax-loading-icon").spin();
+    $.ajaxSetup({
+        beforeSend: function() {
+            $('#ajax-loading-overlay').show();
+        },
+        complete: function(){
+            $('#ajax-loading-overlay').hide();
+        }
+    });
+});
+</script>
