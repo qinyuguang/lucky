@@ -8,7 +8,6 @@ class MonitorController extends Yaf\Controller_Abstract
     {
         // 获取配置
         $config = Yaf\Application::app()->getConfig()->monitor;
-        \Helper\Debug::vars($config);
 
         if (! $config) {
             return false;

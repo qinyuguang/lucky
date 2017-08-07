@@ -1,2 +1,4 @@
 #program console
 
+## 监控
+*/1 * * * * sleep 10;/home/qinyuguang/devspace/lucky/bin/monitor.sh >/dev/null 2>&1
