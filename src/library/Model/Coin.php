@@ -16,5 +16,19 @@ class Coin
             ->execute()
             ->fetchAll();
     }
+
+    public function getLastestValue($type)
+    {
+        return Database::ins()
+            ->createQueryBuilder()
+            ->select('*')
+            ->from('btc38')
+            ->where('type=:type')->setParameter(':type', $type)
+            ->orderBy('id', 'DESC')
+            ->setMaxResults(1)
+            ->execute()
+            ->fetch();
+    }
+
 }
 

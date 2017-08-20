@@ -11,5 +11,10 @@ class Coin
         return (new MC)->listHistory($type, $datetime);
     }
 
+    public function getLastestValue($type)
+    {
+        return (new MC)->getLastestValue($type);
+    }
+
 }
 
