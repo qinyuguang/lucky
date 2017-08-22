@@ -49,7 +49,7 @@ class Agent
 
         $data = [
             'type'      => 'buy',
-            'amount'    => $record['balance'] / $price,
+            'amount'    => $record['balance'] / $price * 0.99,
             'balance'   => 0,
         ];
 
@@ -65,7 +65,7 @@ class Agent
         $data = [
             'type'      => 'sell',
             'amount'    => 0,
-            'balance'   => $record['amount'] * $price,
+            'balance'   => $record['amount'] * $price * 0.99,
         ];
 
         return (new MW)->create($data);
