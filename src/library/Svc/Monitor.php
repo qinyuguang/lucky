@@ -12,7 +12,7 @@ class Monitor
         $coinSvc    = new Coin;
 
         foreach ($group as $item) {
-            $data = $coinSvc->listHistory($item['type'], $item['period']);
+            $data = $coinSvc->listHistory($item['platform'], $item['type'], $item['period']);
 
             foreach ($item['target'] as $target) {
                 $rate = $this->isHit($data, $target);
@@ -36,7 +36,7 @@ class Monitor
         $result = [];
 
         foreach ($config as $item) {
-            $groupKey = $item['type'].':'.$item['period'];
+            $groupKey = $item['platform'].':'.$item['type'].':'.$item['period'];
 
             $result[$groupKey][] = [
                 'trend'     => $item['trend'],
@@ -46,8 +46,9 @@ class Monitor
 
         $group = [];
         foreach ($result as $key=>$value) {
-            list($type, $period) = explode(':', $key);
+            list($platform, $type, $period) = explode(':', $key);
             $group[] = [
+                'platform'  => $platform,
                 'type'      => $type,
                 'period'    => $period,
                 'target'    => $value,

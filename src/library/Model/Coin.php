@@ -5,12 +5,12 @@ use Database\Database;
 
 class Coin
 {
-    public function listHistory($type, $datetime)
+    public function listHistory($platform, $type, $datetime)
     {
         return Database::ins()
             ->createQueryBuilder()
             ->select('*')
-            ->from('btc38')
+            ->from($platform)
             ->where('type=:type')->setParameter(':type', $type)
             ->andWhere('ftime > :ftime')->setParameter(':ftime', $datetime)
             ->execute()
