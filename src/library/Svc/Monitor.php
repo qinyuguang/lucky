@@ -23,6 +23,7 @@ class Monitor
                         'trend'     => $target['trend'],
                         'percent'   => $target['percent'],
                         'rate'      => $rate,
+                        'mailgroup' => $target['mailgroup'],
                     ];
                 }
             }
@@ -41,6 +42,7 @@ class Monitor
             $result[$groupKey][] = [
                 'trend'     => $item['trend'],
                 'percent'   => $item['percent'],
+                'mailgroup' => $item['mailgroup'],
             ];
         }
 

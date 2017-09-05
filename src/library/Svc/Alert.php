@@ -7,15 +7,19 @@ class Alert
 
     public function send($hits)
     {
-        $messages = [];
-        foreach ($hits as $item) {
-            $messages[] = $this->getMessage($item);
-        }
+        $hits = $this->groupByMail($hits);
 
-        if ($messages) {
-            $message = implode(PHP_EOL, $messages);
+        foreach ($hits as $groupId => $group) {
+            $messages = [];
+            foreach ($group as $item) {
+                $messages[] = $this->getMessage($item);
+            }
 
-            $this->sendMail($message);
+            if ($messages) {
+                $message = implode(PHP_EOL, $messages);
+
+                $this->sendMail($groupId, $message);
+            }
         }
 
         return true;
@@ -26,12 +30,13 @@ class Alert
         return sprintf('%s提醒: %d分钟内%s超过%d%%, 达到%d%%!', strtoupper($hit['type']), $hit['period'], self::TREND[$hit['trend']], $hit['percent'], $hit['rate']);
     }
 
-    private function sendMail($message)
+    private function sendMail($mailGroup, $message)
     {
         $swiftmailer = \Yaf\Application::app()->getConfig()->swiftmailer;
 
         $subject    = 'Coin预警';
-        $to         = \Yaf\Application::app()->getConfig()->alertmail->toArray();
+        $to         = \Yaf\Application::app()->getConfig()->alertmail->$mailGroup;
+        $to         = explode(',', $to);
         $from       = $swiftmailer->username;
         $pwd        = $swiftmailer->password;
 
@@ -50,6 +55,17 @@ class Alert
         $result = $mailer->send($message);
 
         return (bool) $result;
+    }
+
+    private function groupByMail($hits)
+    {
+        $result = [];
+
+        foreach ($hits as $hit) {
+            $result[$hit['mailgroup']][] = $hit;
+        }
+
+        return $result;
     }
 
 }
