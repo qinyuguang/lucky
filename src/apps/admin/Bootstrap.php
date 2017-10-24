@@ -1,5 +1,5 @@
 <?php
-use Helper\Cookie;
+use Libyaf\Helper\Cookie;
 
 class Bootstrap extends Yaf\Bootstrap_Abstract
 {

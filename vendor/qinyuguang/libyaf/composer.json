@@ -1,0 +1,29 @@
+{
+    "name": "qinyuguang/libyaf",
+    "description": "Library for YAF",
+    "keywords": ["yaf","library"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "qinyuguang",
+            "email": "99756605@qq.com"
+        }
+    ],
+    "require": {
+        "codeguy/upload"                : "*",
+        "geoip2/geoip2"                 : "*",
+        "guzzlehttp/guzzle"             : "*",
+        "doctrine/dbal"                 : "*",
+        "doctrine/mongodb-odm"          : "*",
+        "monolog/monolog"               : "*",
+        "pagerfanta/pagerfanta"         : "*",
+        "pda/pheanstalk"                : "*",
+        "respect/validation"            : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Libyaf\\": "src/"
+        }
+    }
+}

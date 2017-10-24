@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-use Database\Database;
+use Libyaf\Database\Database;
 
 class Coin
 {

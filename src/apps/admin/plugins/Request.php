@@ -5,7 +5,7 @@ class RequestPlugin extends Yaf\Plugin_Abstract
     public function routerStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response)
     {
         //记录请求信息
-        $logger = Logkit\Logger::ins('_request');
+        $logger = Libyaf\Logkit\Logger::ins('_request');
 
         //增加web请求信息
         $processor = new Monolog\Processor\WebProcessor();

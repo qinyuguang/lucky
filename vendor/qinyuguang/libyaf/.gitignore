@@ -1,0 +1,6 @@
+vendor/**/.git
+*.swp
+cscope.out
+tags
+composer.lock
+vendor/

@@ -1,8 +1,9 @@
 FROM php:latest
 
-VOLUME ["./:/www/lucky", "/home/logs/project/lucky"]
+VOLUME ["/home/logs/project/lucky"]
 
 COPY ./src/conf/crontab /etc/cron.d/lucky
+COPY ./* /www/lucky/
 
 RUN pecl install yaf \
     && pecl clear-cache \
@@ -12,5 +13,5 @@ RUN pecl install yaf \
     && service cron start \
     && crontab /etc/cron.d/lucky \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* /tmp/*
 
