@@ -1,4 +1,4 @@
 #program console
 
 ## 监控
-*/1 * * * * sleep 10;php /www/lucky/src/public/console/index.php request_uri=/monitor > /dev/null 2>&1
+*/1 * * * * sleep 10;/usr/local/bin/php /www/lucky/src/public/console/index.php request_uri=/monitor > /dev/null 2>&1

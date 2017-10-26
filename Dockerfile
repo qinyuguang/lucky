@@ -1,6 +1,6 @@
 FROM php:latest
 
-VOLUME ["/home/logs/project/lucky", "/home/logs/php"]
+VOLUME ["/home/logs/project/lucky", "/home/logs/php", "/var/mail"]
 
 COPY ./ /www/lucky/
 COPY ./src/conf/crontab /etc/cron.d/lucky
@@ -12,8 +12,9 @@ RUN pecl install yaf \
     && chmod 0644 /etc/cron.d/lucky \
     && apt-get update \
     && apt-get install -y cron \
-    && service cron start \
     && crontab /etc/cron.d/lucky \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/*
+
+CMD ["cron", "-f"]
 
