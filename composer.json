@@ -1,6 +1,7 @@
 {
     "require": {
-        "qinyuguang/libyaf": "*"
+        "qinyuguang/libyaf": "*",
+        "swiftmailer/swiftmailer": "*"
     },
     "repositories": [
         {
