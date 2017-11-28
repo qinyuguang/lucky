@@ -18,7 +18,10 @@ class Alert
             if ($messages) {
                 $message = implode(PHP_EOL, $messages);
 
-                $this->sendMail($groupId, $message);
+                $result = $this->sendMail($groupId, $message);
+                if (! $result) {
+                    Logkit\Logger::ins('alert')->warning('发送邮件失败');
+                }
             }
         }
 

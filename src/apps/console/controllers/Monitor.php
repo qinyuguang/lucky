@@ -21,7 +21,7 @@ class MonitorController extends Yaf\Controller_Abstract
         (new Alert)->send($hits);
 
         // 模拟买卖
-        (new Agent)->trade($hits);
+        // (new Agent)->trade($hits);
 
         return false;
     }
