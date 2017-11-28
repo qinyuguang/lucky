@@ -17,7 +17,8 @@ RUN docker-php-ext-install pdo_mysql \
     && apt-get install -y cron \
     && crontab /etc/cron.d/lucky \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* \
+    && sed -i '/session    required     pam_loginuid.so/c\#session    required     pam_loginuid.so' /etc/pam.d/cron
 
 CMD ["cron", "-f"]
 
