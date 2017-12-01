@@ -12,7 +12,7 @@ class Coin
             ->select('*')
             ->from($platform)
             ->where('type=:type')->setParameter(':type', $type)
-            ->andWhere('ftime > :ftime')->setParameter(':ftime', $datetime)
+            ->andWhere('ftime >= :ftime')->setParameter(':ftime', $datetime)
             ->execute()
             ->fetchAll();
     }
