@@ -1,4 +1,4 @@
-FROM php:latest
+FROM qinyuguang/yafbase:latest
 
 VOLUME ["/home/logs/project/lucky", "/home/logs/php/lucky", "/var/mail"]
 
@@ -9,16 +9,8 @@ COPY ./conf/online/fpm.conf /usr/local/etc/php-fpm.d/lucky.conf
 
 WORKDIR /www/lucky
 
-RUN docker-php-ext-install pdo_mysql \
-    && pecl install yaf \
-    && pecl clear-cache \
-    && chmod 0644 /etc/cron.d/lucky \
-    && apt-get update \
-    && apt-get install -y cron \
-    && crontab /etc/cron.d/lucky \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* \
-    && sed -i '/session    required     pam_loginuid.so/c\#session    required     pam_loginuid.so' /etc/pam.d/cron
+RUN chmod 0644 /etc/cron.d/lucky \
+    && crontab /etc/cron.d/lucky
 
 CMD ["cron", "-f"]
 
